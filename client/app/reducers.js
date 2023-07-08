@@ -11,7 +11,7 @@ import { reducer as notifications } from 'react-notification-system-redux';
 // import reducers
 
 import applicationReducer from './containers/Application/reducer';
-import homepageReducer from './containers/Homepage/reducer';
+import homepageReducer from './containers/HomePage/reducer';
 
 const createReducer = history => 
     combineReducers({

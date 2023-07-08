@@ -13,17 +13,26 @@ import Upload from '../../components/Common/Upload';
 
 class Homepage extends React.PureComponent {
     render() {
+        const {
+            uploadContact,
+            contactData
+        } = this.props;
         return (
             <div className="homepage">
                <h1>Home</h1>
-               <Upload />
+               <Upload 
+                uploadContact={uploadContact}
+                contactData={contactData}
+                />
             </div>
         );
     }
 }
 
 const mapStateToProps = state => {
-    return {};
+    return {
+        contactData: state.homepage.contactData
+    };
 };
 
 export default connect(mapStateToProps, actions)(Homepage);

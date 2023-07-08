@@ -1,286 +1,231 @@
 const Mongoose = require('mongoose');
-const { Schema } = Mongoose
+const { Schema } = Mongoose;
 
 const ContactSchema = new Schema({
-    Owner1FirstName : {
-        type: String,
-        trim: true
-       },
-       
-    Owner1LastName : {
-        type: String,
-        trim: true
-    },
-       
-    SiteCarrierRoute : {
-        type: String,
-        trim: true
-    },
-       
-    FullSiteAddress : {
-        type: String,
-        trim: true
-    },
-       
-    SiteAddressUnitNumber : {
-        type: String,
-        trim: true
-    },
-       
-    FullMailAddress : {
-        type: String,
-        trim: true
-    },
-       
-    MailAddressCity : {
-        type: String,
-        trim: true
-    },
-       
-     MailAddressState : {
-        type: String,
-        trim: true
-    },
-       
-    MailAddressZip : {
-        type: String,
-        trim: true
-    },
-       
-    LLCOwnerAgentName : {
-        type: String,
-        trim: true
-    },
-       
-    Phone1 : {
-        type: String,
-        trim: true
-    },
-       
-    PhoneType : {
-        type: String,
-        trim: true
-    },
-       
-    Phone2 : {
-        type: String,
-        trim: true
-    },
-       
-    PhoneType : {
-        type: String,
-        trim: true
-    },
-       
-    Phone3 : {
-        type: String,
-        trim: true
-    },
-       
-    PhoneType : {
-        type: String,
-        trim: true
-    },
-       
-    Phone4 : {
-        type: String,
-        trim: true
-    },
-       
-    PhoneType : {
-        type: String,
-        trim: true
-    },
-       
-    Phone5 : {
-        type: String,
-        trim: true
-    },
-       
-    PhoneType : {
-        type: String,
-        trim: true
-    },
-       
-    Phone6 : {
-        type: String,
-        trim: true
-    },
-       
-    PhoneType : {
-        type: String,
-        trim: true
-    },
-       
-    Phone7 : {
-        type: String,
-        trim: true
-    },
-       
-    PhoneType : {
-        type: String,
-        trim: true
-    },
-       
-    Email1 : {
-        type: String,
-        trim: true
-    },
-       
-    Email2 : {
-        type: String,
-        trim: true
-       },
-       
-    Email3 : {
-        type: String,
-        trim: true
-    },
-       
-    SiteAddress : {
-        type: String,
-        trim: true
-    },
-       
-    SiteAddressCity : {
-        type: String,
-        trim: true
-       },
-       
-    SiteAddressState : {
-        type: String,
-        trim: true
-    },
-       
-    SiteAddressZip : {
-        type: String,
-        trim: true
-       },
-       
-    UseCodeDescription : {
-        type: String,
-        trim: true
-    },
-       
-    UseCodeCountyDescription : {
-        type: String,
-        trim: true
-    },
-       
-    ParcelNumber : {
-        type: String,
-        trim: true
-    },
-       
-    Bedrooms : {
-        type: String,
-        trim: true
-    },
-       
-    Bathrooms : {
-        type: String,
-        trim: true
-    },
-       
-    BuildingArea : {
-        type: String,
-        trim: true
-    },
-       
-    LotAreaSQFT : {
-        type: String,
-        trim: true
-    },
-       
-    LotAreaAcres : {
-        type: String,
-        trim: true
-    },
-       
-    CostPerSqFt : {
-        type: String,
-        trim: true
-    },
-       
-    Tract : {
-        type: String,
-        trim: true
-    },
-       
-    YearBuilt : {
-        type: String,
-        trim: true
-    },
-       
-    Zoning : {
-        type: String,
-        trim: true
-    },
-       
-    NumberofUnits : {
-        type: String,
-        trim: true
-    },
-       
-    Pool : {
-        type: String,
-        trim: true
-    },
-       
-    OwnerOccupied : {
-        type: String,
-        trim: true
-    },
-       
-    OwnerType : {
-        type: String,
-        trim: true
-    },
-       
-    SaleDate : {
-        type: String,
-        trim: true
-    },
-       
-    SalesPrice : {
-        type: String,
-        trim: true
-    },
-       
-    SalesPriceCode : {
-        type: String,
-        trim: true
-    },
-       
-    SalesDocumentNumber : {
-        type: String,
-        trim: true
-    },
-       
-    DeedType : {
-        type: String,
-        trim: true
-    },
-       
-    AssessedLandValue : {
-        type: String,
-        trim: true
-    },
-       
-    TotalAssessedValue : {
-        type: String,
-        trim: true
-    },
-       
-    TaxAmount : {
-        type: String,
-        trim: true
-    },
-       
-    CurrentTaxYear : {
-        type: String,
-        trim: true
-    }
+  owner1FirstName: {
+    type: String,
+    trim: true
+  },
+  owner1LastName: {
+    type: String,
+    trim: true
+  },
+  siteCarrierRoute: {
+    type: String,
+    trim: true
+  },
+  fullSiteAddress: {
+    type: String,
+    trim: true
+  },
+  siteAddressUnitNumber: {
+    type: String,
+    trim: true
+  },
+  fullMailAddress: {
+    type: String,
+    trim: true
+  },
+  mailAddressCity: {
+    type: String,
+    trim: true
+  },
+  mailAddressState: {
+    type: String,
+    trim: true
+  },
+  mailAddressZip: {
+    type: String,
+    trim: true
+  },
+  llcOwnerAgentName: {
+    type: String,
+    trim: true
+  },
+  phone1: {
+    type: String,
+    trim: true
+  },
+  phoneType1: {
+    type: String,
+    trim: true
+  },
+  phone2: {
+    type: String,
+    trim: true
+  },
+  phoneType2: {
+    type: String,
+    trim: true
+  },
+  phone3: {
+    type: String,
+    trim: true
+  },
+  phoneType3: {
+    type: String,
+    trim: true
+  },
+  phone4: {
+    type: String,
+    trim: true
+  },
+  phoneType4: {
+    type: String,
+    trim: true
+  },
+  phone5: {
+    type: String,
+    trim: true
+  },
+  phoneType5: {
+    type: String,
+    trim: true
+  },
+  phone6: {
+    type: String,
+    trim: true
+  },
+  phoneType6: {
+    type: String,
+    trim: true
+  },
+  phone7: {
+    type: String,
+    trim: true
+  },
+  phoneType7: {
+    type: String,
+    trim: true
+  },
+  email1: {
+    type: String,
+    trim: true
+  },
+  email2: {
+    type: String,
+    trim: true
+  },
+  email3: {
+    type: String,
+    trim: true
+  },
+  siteAddress: {
+    type: String,
+    trim: true
+  },
+  siteAddressCity: {
+    type: String,
+    trim: true
+  },
+  siteAddressState: {
+    type: String,
+    trim: true
+  },
+  siteAddressZip: {
+    type: String,
+    trim: true
+  },
+  useCodeDescription: {
+    type: String,
+    trim: true
+  },
+  useCodeCountyDescription: {
+    type: String,
+    trim: true
+  },
+  parcelNumber: {
+    type: String,
+    trim: true
+  },
+  bedrooms: {
+    type: String,
+    trim: true
+  },
+  bathrooms: {
+    type: String,
+    trim: true
+  },
+  buildingArea: {
+    type: String,
+    trim: true
+  },
+  lotAreaSQFT: {
+    type: String,
+    trim: true
+  },
+  lotAreaAcres: {
+    type: String,
+    trim: true
+  },
+  costPerSqFt: {
+    type: String,
+    trim: true
+  },
+  tract: {
+    type: String,
+    trim: true
+  },
+  yearBuilt: {
+    type: String,
+    trim: true
+  },
+  zoning: {
+    type: String,
+    trim: true
+  },
+  numberOfUnits: {
+    type: String,
+    trim: true
+  },
+  pool: {
+    type: String,
+    trim: true
+  },
+  ownerOccupied: {
+    type: String,
+    trim: true
+  },
+  ownerType: {
+    type: String,
+    trim: true
+  },
+  saleDate: {
+    type: String,
+    trim: true
+  },
+  salesPrice: {
+    type: String,
+    trim: true
+  },
+  salesPriceCode: {
+    type: String,
+    trim: true
+  },
+  salesDocumentNumber: {
+    type: String,
+    trim: true
+  },
+  deedType: {
+    type: String,
+    trim: true
+  },
+  assessedLandValue: {
+    type: String,
+    trim: true
+  },
+  totalAssessedValue: {
+    type: String,
+    trim: true
+  },
+  taxAmount: {
+    type: String,
+    trim: true
+  },
+  currentTaxYear: {
+    type: String,
+    trim: true
+  }
 });
 
 module.exports = Mongoose.model('Contact', ContactSchema);
