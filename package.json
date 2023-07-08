@@ -59,6 +59,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "dev:client": "cross-env NODE_ENV=development webpack-dev-server --verbose --config webpack/webpack.dev.js",
+    "dev:server": "nodemon",
+    "dev": "npm-run-all --parallel dev:*",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
