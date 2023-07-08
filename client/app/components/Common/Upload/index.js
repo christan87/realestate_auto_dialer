@@ -27,7 +27,7 @@ const ExcelUploader = props => {
   */
   useEffect(() => {
     if (contactData) {
-      console.log('=================>useEffect>Upload>contactData: ', contactData);
+      console.log('Upload>contactData: Change detected');
     }
   }, [contactData]);
 
@@ -43,8 +43,7 @@ const ExcelUploader = props => {
         const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
         // Do something with the jsonData, such as sending it to a server or processing it further
         //let str = modelOutline(jsonData[0]);
-        uploadContact(jsonData[1]);
-        console.log('Uploaded Excel data Size:', jsonData.length);
+        uploadContact(jsonData);
       };
       reader.readAsArrayBuffer(selectedFile);
 

@@ -7,7 +7,7 @@ const path = require('path');
 const helmet = require('helmet');
 
 const keys = require('./config/keys'); 
-// const routes = require('./routes');
+const routes = require('./routes');
 const socket = require('./socket');
 const setupDB = require('./utils/db');
 
@@ -27,7 +27,7 @@ app.use(cors());
 app.use(express.static(path.resolve(__dirname, '../dist')));
 
 setupDB();
-//app.use(routes);
+app.use(routes);
 
 // for demo only!
 app.get('/', (req, res) => {
