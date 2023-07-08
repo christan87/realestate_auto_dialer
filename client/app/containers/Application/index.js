@@ -8,23 +8,10 @@ import actions from "../../actions";
 
 //routes
 import HomePage from "../HomePage";
-import Navigation from "../Navigation";
-import Login from "../Login";
-import Authentication from "../Authentication";
-import Dashboard from "../Dashboard";
+// import Page404 from '../../components/Common/Page404';
 
-import Page404 from '../../components/Common/Page404';
-import Footer from "../../components/Common/Footer";
 
 class Application extends React.PureComponent {
-
-    componentDidMount() {
-        const token = localStorage.getItem('token');
-
-        if(token) {
-            this.props.fetchProfile()
-        }
-    }
 
     render() {
         return (
