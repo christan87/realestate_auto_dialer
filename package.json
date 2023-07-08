@@ -56,7 +56,8 @@
     "socket.io": "^4.6.1",
     "socket.io-client": "^4.6.1",
     "validatorjs": "^3.22.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "xlsx": "^0.18.5"
   },
   "scripts": {
     "dev:client": "cross-env NODE_ENV=development webpack-dev-server --verbose --config webpack/webpack.dev.js",

@@ -1,0 +1,14 @@
+.upload{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    max-width: fit-content;
+    border: solid black 1px;
+    padding: 10px;
+    background-color: grey;
+
+    .upload-submit{
+        margin-top: 1rem;
+    }
+}
+
