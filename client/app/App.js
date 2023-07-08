@@ -1,5 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
+import { SocketProvider } from "./contexts/Socket";
 import { ConnectedRouter } from 'connected-react-router';
 
 import store, { history } from './store';
@@ -24,7 +25,9 @@ const App = () => {
     return(
        <Provider store={store}>
         <ConnectedRouter history={history}>
-            <Application />
+            <SocketProvider>
+                <Application />
+            </SocketProvider>
         </ConnectedRouter>
        </Provider>
     );
