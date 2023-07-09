@@ -8,5 +8,10 @@ module.exports = {
     port: process.env.PORT || 3000,
     database: {
         url: process.env.MONGO_URI
+    },
+    twilioKeys: {
+        twilioAccountSid: process.env.TWILIO_SID,
+        twilioAuthToken: process.env.TWILIO_AUTH_TOKEN,
+        twilioNumber: process.env.TWILIO_NUMBER
     }
 }

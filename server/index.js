@@ -11,7 +11,8 @@ const routes = require('./routes');
 const socket = require('./socket');
 const setupDB = require('./utils/db');
 
-const { port } = keys;
+const { port, twilioKeys } = keys;
+
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
