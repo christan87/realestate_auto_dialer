@@ -12,10 +12,14 @@ import actions from '../../actions';
 import Upload from '../../components/Common/Upload';
 
 class Homepage extends React.PureComponent {
+    componentDidMount() {
+        this.props.fetchContacts();
+    }
     render() {
         const {
             uploadContact,
-            contactData
+            contactData,
+            contacts
         } = this.props;
         return (
             <div className="homepage">
@@ -31,7 +35,8 @@ class Homepage extends React.PureComponent {
 
 const mapStateToProps = state => {
     return {
-        contactData: state.homepage.contactData
+        contactData: state.homepage.contactData,
+        contacts : state.homepage.contacts
     };
 };
 

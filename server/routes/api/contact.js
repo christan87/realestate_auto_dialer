@@ -4,7 +4,23 @@ const router = express.Router();
 // Bring in Models and Helpers
 const Contact = require('../../models/contact');
 
-//add contact
+// fetch all contacts
+router.get('/', async (req, res) => {
+    try {
+        const contactsDoc = await Contact.find();
+        return res.status(200).json({
+            success: true,
+            message: 'Contacts have been successfully retrieved.',
+            contacts: contactsDoc
+        })
+    } catch (error) {
+        res.status(400).json({
+            error: 'Your Contact add request could not be processed. Please try again.'
+        }); 
+    }
+});
+
+// add contact
 router.post('/add', async (req, res) => {
     try {
         const contact = new Contact({

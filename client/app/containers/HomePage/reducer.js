@@ -5,11 +5,13 @@
 import { 
     DEFAULT_ACTION,
     ADD_CONTACT,
-    UPLOAD_CONTACT
+    UPLOAD_CONTACT,
+    FETCH_CONTACT
  } from './constants';
 
 const initialState = {
-    contactData: {}
+    contactData: {},
+    contacts: []
 };
 
 const homepageReducer = (state = initialState, action) => {
@@ -24,6 +26,11 @@ const homepageReducer = (state = initialState, action) => {
                     ...action.payload
                 }
             };
+        case FETCH_CONTACT:
+            return {
+                ...state, 
+                contacts: action.payload
+            }
         default:
             return state;
     }

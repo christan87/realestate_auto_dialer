@@ -7,7 +7,8 @@ import axios from "axios";
 import { 
     DEFAULT_ACTION, 
     ADD_CONTACT,
-    UPLOAD_CONTACT
+    UPLOAD_CONTACT,
+    FETCH_CONTACT
 } from './constants';
 
 import {
@@ -54,12 +55,13 @@ export const uploadContact = (value) => {
     }
 }
 
-export const addContact = (contact) => {
-    return async (dispatch, getState) =>{
+export const fetchContacts = () => {
+    return async (dispatch, getState) => {
         try {
-            
+            const response = await axios.get(`/api/contact`);
+            dispatch({type: FETCH_CONTACT, payload: response.data.contacts});
         } catch (error) {
-            console.log(`containers>HomPage>actions>addContact>Error: ${error}`)
+            console.log(`containers>HomPage>actions>fetchContact>Error: ${error}`)
         }
     }
 }
