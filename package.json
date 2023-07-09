@@ -55,6 +55,7 @@
     "simple-line-icons": "^2.5.5",
     "socket.io": "^4.6.1",
     "socket.io-client": "^4.6.1",
+    "twilio": "^4.13.0",
     "validatorjs": "^3.22.1",
     "web-vitals": "^2.1.4",
     "xlsx": "^0.18.5"

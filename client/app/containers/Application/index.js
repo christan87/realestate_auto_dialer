@@ -27,10 +27,6 @@ class Application extends React.PureComponent {
 
                                 {/*
                                 <Route exact path='/login' component={Login} />
-                                <Route 
-                                    path='/dashboard'
-                                    component={Authentication(Dashboard)}
-                                />
                                 <Route path='/404' component={Page404} />
                                 <Route path='*' component={Page404} /> 
                                 */}
