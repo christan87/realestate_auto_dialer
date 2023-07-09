@@ -15,7 +15,26 @@ router.get('/', async (req, res) => {
         })
     } catch (error) {
         res.status(400).json({
-            error: 'Your Contact add request could not be processed. Please try again.'
+            error: 'Your Contact request could not be processed. Please try again.'
+        }); 
+    }
+});
+
+// fetch specific contact
+router.get('/:id', async (req, res) => {
+    try {
+        
+        const contactId = req.params.id;
+        const contactDoc = await Contact.findById(contactId);
+        return res.status(200).json({
+            success: true,
+            message: 'Contact has been successfully retrieved.',
+            contact: contactDoc
+        })
+    } catch (error) {
+        console.log('server>routes>api>contact.js>Error: ', error)
+        res.status(400).json({
+            error: 'Your Contact request could not be processed. Please try again.'
         }); 
     }
 });

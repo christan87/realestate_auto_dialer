@@ -6,9 +6,8 @@ import axios from "axios";
 
 import { 
     DEFAULT_ACTION, 
-    ADD_CONTACT,
-    UPLOAD_CONTACT,
-    FETCH_CONTACT
+    FETCH_CONTACT,
+    FETCH_CONTACTS
 } from './constants';
 
 import {
@@ -45,12 +44,18 @@ export const uploadContact = (value) => {
                 }
                 const response = await axios.post(`/api/contact/add`, contactDataObj);
             }
-            // return{
-            //     type: UPLOAD_CONTACT,
-            //     payload: contactData
-            // }
         } catch (error) {
             console.log(`client>app>containers>HomePage>actions>uploadContact>Error: ${error}`)
+        }
+    }
+}
+export const fetchContact = (contactId) => {
+    return async (dispatch, getState) => {
+        try {
+            const response = await axios.get(`/api/contact/${contactId}`);
+            dispatch({type: FETCH_CONTACT, payload: response.data.contact});
+        } catch (error) {
+            console.log(`containers>HomPage>actions>fetchContact>Error: ${error}`)
         }
     }
 }
@@ -59,7 +64,7 @@ export const fetchContacts = () => {
     return async (dispatch, getState) => {
         try {
             const response = await axios.get(`/api/contact`);
-            dispatch({type: FETCH_CONTACT, payload: response.data.contacts});
+            dispatch({type: FETCH_CONTACTS, payload: response.data.contacts});
         } catch (error) {
             console.log(`containers>HomPage>actions>fetchContact>Error: ${error}`)
         }

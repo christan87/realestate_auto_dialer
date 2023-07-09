@@ -6,7 +6,8 @@ import {
     DEFAULT_ACTION,
     ADD_CONTACT,
     UPLOAD_CONTACT,
-    FETCH_CONTACT
+    FETCH_CONTACT, 
+    FETCH_CONTACTS
  } from './constants';
 
 const initialState = {
@@ -27,6 +28,12 @@ const homepageReducer = (state = initialState, action) => {
                 }
             };
         case FETCH_CONTACT:
+                return {
+                    ...state, 
+                    contact: action.payload
+                }
+
+        case FETCH_CONTACTS:
             return {
                 ...state, 
                 contacts: action.payload

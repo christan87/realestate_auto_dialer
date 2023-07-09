@@ -8,6 +8,7 @@ import actions from "../../actions";
 
 //routes
 import HomePage from "../HomePage";
+import Contact from "../Contact";
 // import Page404 from '../../components/Common/Page404';
 
 
@@ -22,6 +23,7 @@ class Application extends React.PureComponent {
                         <div className="wrapper">
                             <Switch>
                                 <Route exact path='/' component={HomePage} />
+                                <Route exact path='/contact/:id' component={Contact} />
 
                                 {/*
                                 <Route exact path='/login' component={Login} />
