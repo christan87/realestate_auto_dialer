@@ -24,3 +24,35 @@ export const sendMessage = (text) => {
         }
     }
 }
+
+export const initiateCall = recipient => {
+    return async (dispatch, getState) => {
+        try {
+            const response = await axios.get('/api/twilio/call?recipient=' + recipient);
+
+            //const response = await axios.post('/api/twilio/twiml-call', {recipient});
+            // if(response.status === 200){
+            //     console.log('Call Initiated')
+            // } else {
+            //     console.error('Failed to initiate call')
+            // }
+        } catch (error) {
+            console.error('Error occurred while initiating call', error);
+        }
+    }
+}
+
+export const endCall = () => {
+    return async (dispatch, getState) => {
+        try {
+            const response = await axios.post('/api/twilio/end-call');
+            // if(response.status === 200){
+            //     console.log('Call Ended')
+            // } else {
+            //     console.error('Failed to end call')
+            // }
+        } catch (error) {
+            console.error('Error occurred while ending call', error);
+        }
+    }
+}

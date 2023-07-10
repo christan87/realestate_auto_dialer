@@ -21,7 +21,9 @@ class Contact extends React.PureComponent {
     render() {
         const {
             contact,
-            sendMessage
+            sendMessage,
+            initiateCall,
+            endCall
         } = this.props;
         return(
             <div>
@@ -38,7 +40,7 @@ class Contact extends React.PureComponent {
                         </h1>
                     </Col>
                     <Col xs='12' md='6'>
-                        <TwilioForm sendMessage={sendMessage}/>
+                        <TwilioForm sendMessage={sendMessage} initiateCall={initiateCall} endCall={endCall} />
                     </Col>
                 </Row>
                 {contact !== undefined? <ContactDetails contact={contact} /> : null }
