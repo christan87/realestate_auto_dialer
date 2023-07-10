@@ -11,6 +11,7 @@ const twilioAccountSid = twilioKeys.twilioAccountSid;
 const twilioAuthToken = twilioKeys.twilioAuthToken;
 const twilioApiKey = twilioKeys.twilioApiKey;
 const twilioApiSecret = twilioKeys.twilioApiSecret;
+const localTunnel = twilioKeys.localTunnel;
 const twilioClient = new twilio(twilioAccountSid, twilioAuthToken, {
     voice: {
         applicationSid: 'AP3c33d4512c2bb4f1d934ee54901c6585'
@@ -20,6 +21,7 @@ const twilioClient = new twilio(twilioAccountSid, twilioAuthToken, {
 router.put('/send-text', async (req, res) => {
     try {
         console.log('server>routes>api>twilio>Success: Action has reached /send-text route!')
+        console.log('twilioKeys.twilioNumber: ', twilioKeys.twilioNumber)
         // _Get Variables
         const recipient = req.body.recipient;
         const textMessage = req.body.textMessage;
@@ -85,7 +87,7 @@ router.get('/call', async (req, res) => {
     const  recipientNumber = req.query.recipient;
     twilioClient.calls
       .create({
-        url: 'https://better-trains-build.loca.lt/api/twilio/twiml-call?recipient=' + recipientNumber,
+        url: `${localTunnel}/api/twilio/twiml-call?recipient=` + recipientNumber,
         to: '+1'+recipientNumber,
         from: '+1 877 969 2103'
       })

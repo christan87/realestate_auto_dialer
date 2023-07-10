@@ -12,8 +12,9 @@ module.exports = {
     twilioKeys: {
         twilioAccountSid: process.env.TWILIO_SID,
         twilioAuthToken: process.env.TWILIO_AUTH_TOKEN,
-        twilioNumber: process.env.TWILIO_NUMBER,
+        twilioNumber: process.env.TWILIO_PHONE_NUMBER,
         twilioApiKey: process.env.TWILIO_API_SID,
-        twilioApiSecret: process.env.TWILIO_API_SECRET
+        twilioApiSecret: process.env.TWILIO_API_SECRET,
+        localTunnel: process.env.LOCAL_TUNNEL
     }
 }
