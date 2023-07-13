@@ -16,5 +16,9 @@ module.exports = {
         twilioApiKey: process.env.TWILIO_API_SID,
         twilioApiSecret: process.env.TWILIO_API_SECRET,
         localTunnel: process.env.LOCAL_TUNNEL
+    },
+    fonosterKeys: {
+        fonosterAccessKeyId: process.env.FONOSTER_ACCESS_KEY_ID,
+        fonosterAccessKeySecret: process.env.FONOSTER_ACCESS_KEY_SECRET
     }
 }

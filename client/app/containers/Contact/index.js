@@ -9,7 +9,8 @@ import { connect } from "react-redux";
 import { Row, Col } from 'reactstrap';
 
 import ContactDetails from "../../components/Manager/ContactDetails";
-import TwilioForm from "../../components/Manager/TwilioForm";
+// import TwilioForm from "../../components/Manager/TwilioForm";
+import FonosterForm from "../../components/Manager/FonosterForm";
 import actions from '../../actions';
 
 class Contact extends React.PureComponent {
@@ -40,7 +41,7 @@ class Contact extends React.PureComponent {
                         </h1>
                     </Col>
                     <Col xs='12' md='6'>
-                        <TwilioForm sendMessage={sendMessage} initiateCall={initiateCall} endCall={endCall} />
+                        <FonosterForm sendMessage={sendMessage} initiateCall={initiateCall} endCall={endCall} />
                     </Col>
                 </Row>
                 {contact !== undefined? <ContactDetails contact={contact} /> : null }
