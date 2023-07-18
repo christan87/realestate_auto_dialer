@@ -18,8 +18,8 @@ export const defaultAction = () => {
 export const sendMessage = (text) => {
     return async (dispatch, getState) => {
         try {
-            //const response = await axios.put(`/api/twilio/send-text`, text);
-            const response = await axios.post(`/api/fonoster/send-text`, text);
+            const response = await axios.put(`/api/twilio/send-text`, text);
+            //const response = await axios.post(`/api/fonoster/send-text`, text);
         } catch (error) {
             console.log(`containers>Contact>actions>sendMessage>Error: ${error}`)
         }
