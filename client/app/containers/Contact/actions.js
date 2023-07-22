@@ -26,6 +26,51 @@ export const sendMessage = (text) => {
     }
 }
 
+export const autoResponseEmail = (contact, sender) => {
+    return async () =>{
+        try {
+            const email = {
+                recipient: `${contact.email1}`,
+                sender: sender,
+                data: {
+                    firstName: contact.owner1FirstName, 
+                    lastName: contact.owner1LastName,
+                    address:`${contact.fullMailAddress} ${contact.fullSiteAddress} ${contact.mailAddressState} ${contact.mailAddressZip}`
+                }
+            };     
+            return await axios.post(`/api/email/auto-response`, {email:email});
+        } catch (error) {
+            console.log(`containers>Contact>actions>autoResponseEmail>Error: ${error}`)
+        }
+    }
+}
+
+export const autoResponse = (contact, sender, recipient) => {
+    return async () => {
+        try {
+
+            const email = {
+                recipient: `${contact.email1}`,
+                sender: sender,
+                data: {
+                    firstName: contact.owner1FirstName, 
+                    lastName: contact.owner1LastName,
+                    address:`${contact.fullMailAddress} ${contact.fullSiteAddress} ${contact.mailAddressState} ${contact.mailAddressZip}`
+                }
+            };     
+            await axios.post(`/api/email/auto-response`, {email:email});
+            const data = {
+                contact: contact,
+                recipient,
+            };
+            await axios.put(`/api/twilio/send-auto-text`, data);
+            
+        } catch (error) {
+            console.log(`containers>Contact>actions>autoResponsed>Error: ${error}`)
+        }
+    }
+}
+
 export const initiateCall = recipient => {
     return async (dispatch, getState) => {
         try {

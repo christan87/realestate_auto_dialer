@@ -5,6 +5,7 @@ const { twilioKeys } = keys;
 const twilio = require('twilio');
 const AccessToken = twilio.jwt.AccessToken;
 const VoiceGrant = AccessToken.VoiceGrant;
+const autoText = require('../../services/autoText');
 
 // twilio requirements -- Texting Api
 const twilioAccountSid = twilioKeys.twilioAccountSid;
@@ -41,6 +42,36 @@ router.put('/send-text', async (req, res) => {
             error: 'Your Message request could not be processed. Please try again.'
         });
     }
+});
+
+router.put('/send-auto-text', async (req, res) => {
+  try {
+      console.log('server>routes>api>twilio>Success: Action has reached /send-auto-text route!')
+      console.log('twilioKeys.twilioNumber: ', twilioKeys.twilioNumber)
+      // _Get Variables
+      const recipient = req.body.recipient !== "" ? req.body.recipient : req.body.contact.phone1;
+      const data = {
+        firstName: req.body.contact.owner1FirstName,
+        lastName: req.body.contact.owner1LastName,
+        address:`${req.body.contact.fullMailAddress} ${req.body.contact.fullSiteAddress} ${req.body.contact.mailAddressState} ${req.body.contact.mailAddressZip}`
+      }
+      const demoMessage = await autoText.prepAutoText('demo', data); //message.text
+      
+      //Send Text
+      twilioClient.messages.create({
+          body: demoMessage.text,
+          to: '+1'+recipient,
+          from: twilioKeys.twilioNumber
+      }).then((message) => {
+          console.log(message.body);
+      });
+
+  } catch (error) {
+      console.log('server>routes>api>twilio.js>/send-text>Error: ', error);
+      res.status(400).json({
+          error: 'Your Message request could not be processed. Please try again.'
+      });
+  }
 });
 
 router.post('/voice', async (req, res) => {

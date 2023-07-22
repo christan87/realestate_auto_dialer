@@ -19,6 +19,7 @@ const fieldStyle = {
 };
 const ContactList = props => {
     const { contacts } = props;
+    console.log('==============> contacts:', contacts);
     return(
         <div className='contact-list'>
             {contacts.map((contact, index) => (

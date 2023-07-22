@@ -20,5 +20,8 @@ module.exports = {
     fonosterKeys: {
         fonosterAccessKeyId: process.env.FONOSTER_ACCESS_KEY_ID,
         fonosterAccessKeySecret: process.env.FONOSTER_ACCESS_KEY_SECRET
+    },
+    sendGridKeys: {
+        sendGridApiKey: process.env.SENDGRID_API_KEY
     }
 }

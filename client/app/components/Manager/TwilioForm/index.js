@@ -27,7 +27,7 @@ const formItemsStyle = {
 };
 
 const TwilioForm = props => {
-    const { sendMessage, initiateCall, endCall } = props;
+    const { sendMessage, initiateCall, endCall, autoResponseEmail, autoResponse, contact } = props;
     const[recipient, setRecipient] = useState('');
     const[textMessage, setTextMessage] = useState('');
     const [callInProgress, setCallInProgress] = useState(false);
@@ -50,6 +50,12 @@ const TwilioForm = props => {
         e.preventDefault();
         setCallInProgress(false);
         endCall();
+    }
+
+    const handleAutoResponse = async e => {
+        e.preventDefault();
+        // autoResponseEmail(contact, 'christan.price2010@gmail.com')
+        await autoResponse(contact, 'christan.price2010@gmail.com', recipient);
     }
     return(
         <div className='twilio-form' style={formStyle}>
@@ -74,6 +80,7 @@ const TwilioForm = props => {
                     <button style={formItemsStyle.formButton} type='submit'>Send Text</button>
                     <button style={formItemsStyle.formButton} type='button' onClick={handleCall}>Call Contact</button>
                     <button style={formItemsStyle.formButton} type='button' onClick={handleEndCall}>End Call</button>
+                    <button style={formItemsStyle.formButton} type='button' onClick={handleAutoResponse}>Auto</button> 
                 </div>
 
             </form>
