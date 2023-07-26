@@ -118,13 +118,14 @@ router.get('/call', async (req, res) => {
     const  recipientNumber = req.query.recipient;
     twilioClient.calls
       .create({
+        machineDetection: 'DetectMessageEnd',
         url: `${localTunnel}/api/twilio/twiml-call?recipient=` + recipientNumber,
         to: '+1'+recipientNumber,
         from: '+1 877 969 2103'
       })
       .then(call => {
         console.log('Call initiated successfully:', call.sid);
-        res.status(200).json({ message: 'Call initiated successfully' });
+        res.status(200).json({ message: 'Call initiated successfully', call: call });
       })
       .catch(error => {
         console.error('Error initiating call:', error);
@@ -132,19 +133,39 @@ router.get('/call', async (req, res) => {
       });
   });
 
-  router.get('/test', (req, res)=>{
-    res.send('HELLO')
-  })
-  //alt alt
   router.post('/twiml-call', (req, res) => {
     const twiml = new twilio.twiml.VoiceResponse();
     const recipient = '+1'+req.query.recipient;
     const dial = twiml.dial();
-    dial.number(recipient); // Replace with the phone number of the person you want to call
-  
+    dial.number({    
+      statusCallbackEvent: 'initiated ringing answered completed',
+      statusCallback: '/api/twilio/events',
+      statusCallbackMethod: 'POST'
+  }, recipient); // Replace with the phone number of the person you want to call
     res.type('text/xml');
     console.log(twiml.toString())
     res.send(twiml.toString());
+  });
+
+  router.post('/events', (req, res) => {
+    console.log('/events was reached!\n CallStatus:', req.body)
+    res.status(200).send('Success');
+  });
+  router.post('/twiml-record', (req, res) => {
+    // Get the recording information from the request body
+    const recording = req.body;
+  
+    // Check to see if the recording is complete
+    if (recording.status === 'completed') {
+      // Send a success message
+      res.status(200).send('Recording saved.');
+    } else if (recording.status === 'absent') {
+      // The recording was not created, so send an error message
+      res.status(400).send('Recording was not created.');
+    } else {
+      // The recording is still in progress, so wait for it to complete
+      // ...
+    }
   });
 
 module.exports = router;
